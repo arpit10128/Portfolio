@@ -105,7 +105,7 @@ const Welcome = () => {
 
     // remove/cleanup for gsap function
     return () => {
-      (titleCleanup, subtitleCleanup);
+      (titleCleanup(), subtitleCleanup());
     };
   }, []);
 

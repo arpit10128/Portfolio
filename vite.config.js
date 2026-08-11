@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vitest/config'
 import react from '@vitejs/plugin-react'
 import tailwindcss from "@tailwindcss/vite";
 import { resolve, dirname } from "path";
@@ -14,5 +14,10 @@ export default defineConfig({
       '#store': resolve(dirname(fileURLToPath(import.meta.url)), 'src/store'),
       '#windows': resolve(dirname(fileURLToPath(import.meta.url)), 'src/windows'),
     }
+  },
+  test: {
+    environment: 'jsdom',
+    setupFiles: ['./src/test/setup.js'],
+    globals: true,
   }
 })

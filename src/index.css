@@ -7,10 +7,147 @@ body {
   width: 100dvw;
   overflow: hidden;
   height: 100dvh;
-  background-image: url("/images/wallpaper2.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.space-background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at 50% 45%,
+    #0c0e10 0%,
+    #030405 56%,
+    #010202 100%
+  );
+}
+.nebula {
+  position: absolute;
+  width: 70vw;
+  height: 55vw;
+  border-radius: 50%;
+  filter: blur(85px);
+  opacity: 0.12;
+  animation: breathe 12s ease-in-out infinite alternate;
+}
+.nebula-one {
+  top: -35%;
+  left: 34%;
+  background: #8d928e;
+}
+.nebula-two {
+  right: -32%;
+  bottom: -30%;
+  background: #486366;
+  animation-delay: -5s;
+  opacity: 0.08;
+}
+.star-layer {
+  position: absolute;
+  inset: 0;
+}
+.star-wrap {
+  position: absolute;
+  animation: star-drift linear infinite alternate;
+  will-change: transform;
+}
+.star {
+  display: block;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 7px 1px rgba(255, 255, 255, 0.6);
+  animation: twinkle ease-in-out infinite alternate;
+  will-change: opacity, transform;
+}
+@keyframes star-drift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(var(--dx), var(--dy), 0);
+  }
+}
+@keyframes twinkle {
+  0% {
+    opacity: var(--min-o);
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+.shooting-star-wrap {
+  position: absolute;
+  animation: shoot-move linear forwards;
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .star-wrap,
+  .star,
+  .shooting-star-wrap,
+  .nebula {
+    animation-name: none !important;
+  }
+
+  .shooting-star-wrap {
+    display: none;
+  }
+}
+
+.shooting-star {
+  position: absolute;
+  width: 140px;
+  height: 2px;
+  display: block;
+  transform: rotate(var(--angle));
+  transform-origin: left center;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.9),
+    rgba(255, 255, 255, 0)
+  );
+  box-shadow: 0 0 8px 1px rgba(255, 255, 255, 0.55);
+}
+.shooting-star::after {
+  content: "";
+  position: absolute;
+  right: 6px;
+  top: -2px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 0 10px 3px white;
+}
+
+@keyframes shoot-move {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) scale(0.3);
+  }
+  8% {
+    opacity: 1;
+    transform: translate3d(
+        calc(var(--dx) * 0.07),
+        calc(var(--dy) * 0.07),
+        0
+      )
+      scale(1);
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(var(--dx), var(--dy), 0) scale(1);
+  }
 }
 
 @theme {

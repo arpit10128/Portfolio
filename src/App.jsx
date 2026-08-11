@@ -1,4 +1,5 @@
 import { Dock, Navbar, Welcome } from "#components";
+import Background from "#components/Background";
 import { Terminal } from "#windows";
 import gsap from "gsap";
 
@@ -9,6 +10,7 @@ const App = () => {
   return (
     <main>
       <Navbar />
+      <Background />
       <Welcome />
       <Dock />
 

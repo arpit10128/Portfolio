@@ -7,7 +7,6 @@ body {
   width: 100dvw;
   overflow: hidden;
   height: 100dvh;
-  background-image: url("/images/wallpaper2.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -87,6 +86,20 @@ body {
   animation: shoot-move linear forwards;
   will-change: transform, opacity;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .star-wrap,
+  .star,
+  .shooting-star-wrap,
+  .nebula {
+    animation-name: none !important;
+  }
+
+  .shooting-star-wrap {
+    display: none;
+  }
+}
+
 .shooting-star {
   position: absolute;
   width: 140px;

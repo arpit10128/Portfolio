@@ -35,6 +35,7 @@ const Background = () => {
   useEffect(() => {
     let nextId = 0;
     let scheduleId;
+    const removalTimeoutIds = new Set(); //for clear shooting-star removal timers during cleanup.
 
     const createShootingStar = () => {
       const goingRight = Math.random() < 0.5;
@@ -65,14 +66,16 @@ const Background = () => {
         star,
       ]);
 
-      window.setTimeout(
+      const removalTimeoutId = window.setTimeout(
         () => {
           setShootingStars((current) =>
             current.filter((item) => item.id !== star.id),
           );
+          removalTimeoutIds.delete(removalTimeoutId);
         },
         star.duration * 1000 + 400,
       );
+      removalTimeoutIds.add(removalTimeoutId);
 
       scheduleId = window.setTimeout(
         createShootingStar,
@@ -88,11 +91,14 @@ const Background = () => {
     return () => {
       window.clearTimeout(initialTimeout);
       window.clearTimeout(scheduleId);
+      removalTimeoutIds.forEach((timeoutId) =>
+        window.clearTimeout(timeoutId),
+      );
     };
   }, []);
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-[#030405] text-white selection:bg-white/20">
+    <div className="fixed inset-0 overflow-hidden bg-[#030405] text-white selection:bg-white/20 pointer-events-none -z-10">
       <div className="space-background" aria-hidden="true">
         <div className="nebula nebula-one" />
         <div className="nebula nebula-two" />

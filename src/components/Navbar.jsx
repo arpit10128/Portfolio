@@ -1,8 +1,11 @@
-import dayjs from "dayjs";
-
 import { navLinks } from "#constants";
+import useWindowStore from "#store/window";
+import useLiveTime from "./Time";
 
 const Navbar = () => {
+  const { openWindow } = useWindowStore();
+  const time = useLiveTime("ddd MMM D h:mm A");
+
   return (
     <nav>
       <div>
@@ -11,8 +14,8 @@ const Navbar = () => {
         </p>
 
         <ul className="text-white">
-          {navLinks.map(({ id, name }) => (
-            <li key={id}>
+          {navLinks.map(({ id, name, type }) => (
+            <li key={id} onClick={() => openWindow(type)}>
               <p>{name}</p>
             </li>
           ))}
@@ -32,9 +35,7 @@ const Navbar = () => {
           ))}
         </ul> */}
 
-        <time datetime="">
-          {dayjs().format("ddd MMM D h:mm A")}
-        </time>
+        <time>{time}</time>
       </div>
     </nav>
   );

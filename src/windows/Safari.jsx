@@ -21,6 +21,7 @@ const Safari = () => {
             position: "absolute",
             left: "50%",
             transform: "translateX(-50%)",
+            fontWeight: "bold",
           }}
         >
           <p>Articles</p>

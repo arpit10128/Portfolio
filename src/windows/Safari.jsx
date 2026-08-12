@@ -43,6 +43,7 @@ const Safari = () => {
                     href={link}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={`Open ${title} in a new tab`}
                   >
                     Check out{" "}
                     <MoveRight className="icon-hover" />

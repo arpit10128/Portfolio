@@ -1,6 +1,7 @@
 import { Dock, Navbar, Welcome } from "#components";
 import Background from "#components/Background";
 import {
+  Contact,
   Finder,
   Image,
   Resume,
@@ -27,6 +28,7 @@ const App = () => {
       <Finder />
       <Text />
       <Image />
+      <Contact />
     </main>
   );
 };

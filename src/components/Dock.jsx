@@ -1,18 +1,13 @@
 import { dockApps } from "#constants";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
-import { Tooltip } from "react-tooltip";
 import gsap from "gsap";
 import useWindowStore from "#store/window";
+import FastTooltip from "./FastToolTip";
 
 const Dock = () => {
-  const {
-    openWindow,
-    closeWindow,
-    // minWindow,
-    // maxWindow,
-    windows,
-  } = useWindowStore();
+  const { openWindow, closeWindow, windows } =
+    useWindowStore();
 
   const dockRef = useRef(null);
 
@@ -84,8 +79,6 @@ const Dock = () => {
 
     if (window.isOpen) closeWindow(app.id);
     else openWindow(app.id);
-
-    console.log(windows);
   };
 
   return (
@@ -96,30 +89,24 @@ const Dock = () => {
             key={id}
             className="relative flex justify-center"
           >
-            <button
-              type="button"
-              className="dock-icon"
-              aria-label={name}
-              data-tooltip-id="dock-tooltip"
-              data-tooltip-content={name}
-              data-tooltip-delay-show={150}
-              disabled={!canOpen}
-              onClick={() => toggleApp({ id, canOpen })}
-            >
-              <img
-                src={`/images/${icon}`}
-                alt={name}
-                loading="lazy"
-                className={canOpen ? "" : "opacity-60"}
-              />
-            </button>
+            <FastTooltip content={name}>
+              <button
+                type="button"
+                className="dock-icon"
+                aria-label={name}
+                disabled={!canOpen}
+                onClick={() => toggleApp({ id, canOpen })}
+              >
+                <img
+                  src={`/images/${icon}`}
+                  alt={name}
+                  loading="lazy"
+                  className={canOpen ? "" : "opacity-60"}
+                />
+              </button>
+            </FastTooltip>
           </div>
         ))}
-        <Tooltip
-          id="dock-tooltip"
-          place="top"
-          className="tooltip"
-        />
       </div>
     </section>
   );

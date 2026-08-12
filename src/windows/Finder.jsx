@@ -16,7 +16,11 @@ const Finder = () => {
     if (item.kind === "folder")
       return setActiveLocation(item);
     if (["fig", "url"].includes(item.fileType) && item.href)
-      return window.open(item.href, "_blank");
+      return window.open(
+        item.href,
+        "_blank",
+        "noopener,noreferrer",
+      );
 
     openWindow(`${item.fileType}${item.kind}`, item);
   };

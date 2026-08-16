@@ -17,24 +17,59 @@ export default function VisitorCounter() {
     const alreadyCounted = sessionStorage.getItem(
       "visitor-counted",
     );
-    const endpoint = alreadyCounted ? "" : "/up"; // "" = read only, "/up" = increment + read
+    const shouldIncrement = !alreadyCounted;
+    const endpoint = shouldIncrement ? "/up" : ""; // "" = read only, "/up" = increment + read
     const url = `https://api.counterapi.dev/v2/${WORKSPACE}/${COUNTER_NAME}${endpoint}?_=${Date.now()}`;
+    const controller = new AbortController();
+    const timeoutMs = 5000;
+    const timeoutId = setTimeout(() => {
+      controller.abort();
+    }, timeoutMs);
 
-    if (!alreadyCounted)
-      sessionStorage.setItem("visitor-counted", "true");
+    fetch(url, {
+      cache: "no-store",
+      signal: controller.signal,
+    })
+      .then(async (res) => {
+        if (!res.ok) {
+          throw new Error(
+            `Counter request failed: ${res.status}`,
+          );
+        }
 
-    fetch(url, { cache: "no-store" })
-      .then((res) => res.json())
-      .then((result) => {
-        setCount(
+        const result = await res.json();
+        const rawCount =
           result?.data?.up_count ??
-            result?.data?.count ??
-            null,
-        );
+          result?.data?.count ??
+          null;
+        const parsedCount =
+          typeof rawCount === "number"
+            ? rawCount
+            : typeof rawCount === "string" &&
+                rawCount.trim() !== ""
+              ? Number(rawCount)
+              : null;
+
+        if (!Number.isFinite(parsedCount)) {
+          throw new Error(
+            "Invalid visitor counter response",
+          );
+        }
+
+        if (shouldIncrement) {
+          sessionStorage.setItem("visitor-counted", "true");
+        }
+
+        setCount(parsedCount);
       })
       .catch((err) => {
-        console.error("Visitor counter error:", err);
+        if (err?.name !== "AbortError") {
+          console.error("Visitor counter error:", err);
+        }
         setCount(null);
+      })
+      .finally(() => {
+        clearTimeout(timeoutId);
       });
   }, []);
 

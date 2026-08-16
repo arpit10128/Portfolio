@@ -42,18 +42,18 @@ const dockApps = [
     icon: "finder.png",
     canOpen: true,
   },
-  {
-    id: "safari",
-    name: "Articles", // was "Safari"
-    icon: "safari.png",
-    canOpen: true,
-  },
-  {
-    id: "photos",
-    name: "Gallery", // was "Photos"
-    icon: "photos.png",
-    canOpen: true,
-  },
+  // {
+  //   id: "safari",
+  //   name: "Articles", // was "Safari"
+  //   icon: "safari.png",
+  //   canOpen: true,
+  // },
+  // {
+  //   id: "photos",
+  //   name: "Gallery", // was "Photos"
+  //   icon: "photos.png",
+  //   canOpen: true,
+  // },
   {
     id: "contact",
     name: "Contact", // or "Get in touch"
@@ -66,12 +66,12 @@ const dockApps = [
     icon: "terminal.png",
     canOpen: true,
   },
-  {
-    id: "trash",
-    name: "Archive", // was "Trash"
-    icon: "trash.png",
-    canOpen: false,
-  },
+  // {
+  //   id: "trash",
+  //   name: "Archive", // was "Trash"
+  //   icon: "trash.png",
+  //   canOpen: false,
+  // },
 ];
 
 const blogPosts = [
@@ -104,23 +104,47 @@ const blogPosts = [
 const techStack = [
   {
     category: "Frontend",
-    items: ["React.js", "Next.js", "TypeScript"],
+    items: ["React.js", "Next.js", "TypeScript", "Vite"],
   },
   {
-    category: "Mobile",
-    items: ["React Native", "Expo"],
-  },
-  {
-    category: "Styling",
-    items: ["Tailwind CSS", "Sass", "CSS"],
+    category: "Styling & UI",
+    items: [
+      "Tailwind CSS",
+      "Sshadcn/ui",
+      "Lucide React",
+      "CSS",
+    ],
   },
   {
     category: "Backend",
-    items: ["Node.js", "Express", "NestJS", "Hono"],
+    items: [
+      "Node.js",
+      "Express",
+      "NestJS",
+      "Elysia",
+      "REST APIs",
+    ],
   },
   {
-    category: "Database",
-    items: ["MongoDB", "PostgreSQL"],
+    category: "Database & Auth",
+    items: [
+      "MongoDB",
+      "PostgreSQL",
+      "Clerk",
+      "JWT",
+      "OAuth 2.0",
+      "Zod",
+    ],
+  },
+  {
+    category: "AI & Cloud",
+    items: [
+      "Hugging Face",
+      "ChatGpt",
+      "Gemini",
+      "Vercel",
+      "Vercel Blob",
+    ],
   },
   {
     category: "Dev Tools",
@@ -134,28 +158,21 @@ const socials = [
     text: "Github",
     icon: "/icons/github.svg",
     bg: "#f4656b",
-    link: "https://github.com/JavaScript-Mastery-Pro",
+    link: "https://github.com/arpit10128",
   },
   {
     id: 2,
-    text: "Platform",
-    icon: "/icons/atom.svg",
-    bg: "#4bcb63",
-    link: "https://jsmastery.com/",
-  },
-  {
-    id: 3,
     text: "Twitter/X",
     icon: "/icons/twitter.svg",
     bg: "#ff866b",
-    link: "https://x.com/jsmasterypro",
+    link: "https://x.com/arpitrw",
   },
   {
-    id: 4,
+    id: 3,
     text: "LinkedIn",
     icon: "/icons/linkedin.svg",
     bg: "#05b6f6",
-    link: "https://www.linkedin.com/company/javascriptmastery/posts/?feedView=all",
+    link: "https://www.linkedin.com/in/arpit-saraswat/",
   },
 ];
 
@@ -227,7 +244,7 @@ const WORK_LOCATION = {
     // ▶ Project 1
     {
       id: 5,
-      name: "Nike Ecommerce Website Application",
+      name: "Ai Voice Library",
       icon: "/images/folder.png",
       kind: "folder",
       position: "top-10 left-5", // icon position inside Finder
@@ -235,44 +252,44 @@ const WORK_LOCATION = {
       children: [
         {
           id: 1,
-          name: "Nike Project.txt",
+          name: "WhisperDocs.txt",
           icon: "/images/txt.png",
           kind: "file",
           fileType: "txt",
           position: "top-5 left-10",
           description: [
-            "The Nike eCommerce website is a sleek and modern platform designed for shopping the latest Nike collections.",
-            "Instead of a simple online store, it delivers an immersive experience with bold visuals, interactive product displays, and smooth navigation.",
-            "Think of it like walking into a flagship Nike store—but right from your phone or laptop.",
-            "It's built with Next.js and Tailwind, ensuring fast performance, responsive design, and a clean, premium look.",
+            "WhisperDocs is an AI-powered document assistant that lets users converse with their PDF documents using voice or text. Users can upload a PDF, and WhisperDocs processes and stores its content so they can ask questions about the document and receive AI-generated answers in both text and voice.",
+
+            "Built with Next.js, TypeScript, Tailwind CSS, Clerk, MongoDB, Mongoose, and Vercel Blob, the project combines document processing, authentication, cloud storage, and AI-powered conversational interaction into a single platform.",
+
+            "Key Features",
+            "📄 Upload and process PDF documents",
+            "🔍 Parse and segment document content for AI retrieval",
+            "💬 Ask questions about uploaded documents",
+            "🎙️ Interact with documents through voice",
+            "🔊 Receive AI responses in both text and speech",
+            "🔐 Secure authentication and user-specific document access",
+            "☁️ Cloud-based PDF and asset storage using Vercel Blob",
+            "🗄️ MongoDB-based document and segment management",
           ],
         },
         {
           id: 2,
-          name: "nike.com",
+          name: "WhisperDocs.com",
           icon: "/images/safari.png",
           kind: "file",
           fileType: "url",
-          href: "https://youtu.be/fZdTYswuZjU?si=Awjl-pIst9e09_UU",
+          href: "https://whisper-docs-eta.vercel.app/",
           position: "top-10 right-20",
         },
         {
           id: 4,
-          name: "nike.png",
+          name: "WhisperDocs.png",
           icon: "/images/image.png",
           kind: "file",
           fileType: "img",
-          position: "top-52 right-80",
-          imageUrl: "/images/project-1.png",
-        },
-        {
-          id: 5,
-          name: "Design.fig",
-          icon: "/images/plain.png",
-          kind: "file",
-          fileType: "fig",
-          href: "https://google.com",
-          position: "top-60 right-20",
+          position: "top-42 right-60",
+          imageUrl: "/images/ai-voice-library.png",
         },
       ],
     },
@@ -283,7 +300,7 @@ const WORK_LOCATION = {
       name: "AI Resume Analyzer",
       icon: "/images/folder.png",
       kind: "folder",
-      position: "top-52 right-80",
+      position: "top-32 right-40",
       windowPosition: "top-[20vh] left-7",
       children: [
         {
@@ -294,10 +311,20 @@ const WORK_LOCATION = {
           fileType: "txt",
           position: "top-5 right-10",
           description: [
-            "AI Resume Analyzer is a smart tool that helps you perfect your resume with instant feedback.",
-            "Instead of guessing what recruiters want, you get AI-powered insights on keywords, formatting, and overall impact.",
-            "Think of it like having a career coach—pointing out strengths, fixing weaknesses, and boosting your chances of landing interviews.",
-            "It's built with Next.js and Tailwind, so it runs fast, looks professional, and works seamlessly on any device.",
+            "AI Resume Analyzer is an AI-powered tool that analyzes resumes against job requirements to help candidates understand how well their profile matches a role. Users can upload their resume and receive an intelligent analysis of their  skills, experience, strengths, weaknesses, and overall job compatibility.",
+
+            "The project focuses on using AI to turn an ordinary resume into actionable insights, helping users identify missing skills, improve their resume content, and better align their experience with specific job descriptions.",
+
+            "Key Features",
+
+            "📄 Upload and analyze resumes",
+            "🤖 AI-powered resume evaluation",
+            "🎯 Compare resumes with specific job descriptions",
+            "🧠 Identify relevant and missing skills",
+            "📊 Generate resume/job match insights",
+            "✍️ Suggest areas for improvement",
+            "🔍 Analyze experience and qualifications",
+            "⚡ Provide actionable feedback for better job applications",
           ],
         },
         {
@@ -306,7 +333,7 @@ const WORK_LOCATION = {
           icon: "/images/safari.png",
           kind: "file",
           fileType: "url",
-          href: "https://youtu.be/iYOz165wGkQ?si=R1hs8Legl200m0Cl",
+          href: "https://puter.com/app/ai-resume-analyzer-x285",
           position: "top-20 left-20",
         },
         {
@@ -315,70 +342,8 @@ const WORK_LOCATION = {
           icon: "/images/image.png",
           kind: "file",
           fileType: "img",
-          position: "top-52 left-80",
-          imageUrl: "/images/project-2.png",
-        },
-        {
-          id: 5,
-          name: "Design.fig",
-          icon: "/images/plain.png",
-          kind: "file",
-          fileType: "fig",
-          href: "https://google.com",
-          position: "top-60 left-5",
-        },
-      ],
-    },
-
-    // ▶ Project 3
-    {
-      id: 7,
-      name: "Food Delivery App",
-      icon: "/images/folder.png",
-      kind: "folder",
-      position: "top-10 left-80",
-      windowPosition: "top-[33vh] left-7",
-      children: [
-        {
-          id: 1,
-          name: "Food Delivery App Project.txt",
-          icon: "/images/txt.png",
-          kind: "file",
-          fileType: "txt",
-          position: "top-5 left-10",
-          description: [
-            "Our Food Delivery App is a fast and convenient way to order meals from your favorite restaurants.",
-            "Instead of making calls or waiting in line, you can browse menus, customize orders, and track deliveries in real time.",
-            "Think of it like having your favorite restaurants in your pocket—ready to deliver anytime, anywhere.",
-            "It’s built with React Native, so it works smoothly on both iOS and Android with a clean, modern design.",
-          ],
-        },
-        {
-          id: 2,
-          name: "food-delivery-app.com",
-          icon: "/images/safari.png",
-          kind: "file",
-          fileType: "url",
-          href: "https://youtu.be/LKrX390fJMw?si=cExkuVhf2DTV9G2-",
-          position: "top-10 right-20",
-        },
-        {
-          id: 4,
-          name: "food-delivery-app.png",
-          icon: "/images/image.png",
-          kind: "file",
-          fileType: "img",
-          position: "top-52 right-80",
-          imageUrl: "/images/project-3.png",
-        },
-        {
-          id: 5,
-          name: "Design.fig",
-          icon: "/images/plain.png",
-          kind: "file",
-          fileType: "fig",
-          href: "https://google.com",
-          position: "top-60 right-20",
+          position: "top-40 left-60",
+          imageUrl: "/images/ai-resume-image.png",
         },
       ],
     },
@@ -399,40 +364,19 @@ const ABOUT_LOCATION = {
       kind: "file",
       fileType: "img",
       position: "top-10 left-5",
-      imageUrl: "/images/adrian.jpg",
+      imageUrl: "/images/arpit.png",
     },
     {
       id: 2,
-      name: "casual-me.png",
-      icon: "/images/image.png",
-      kind: "file",
-      fileType: "img",
-      position: "top-28 right-72",
-      imageUrl: "/images/adrian-2.jpg",
-    },
-    {
-      id: 3,
-      name: "conference-me.png",
-      icon: "/images/image.png",
-      kind: "file",
-      fileType: "img",
-      position: "top-52 left-80",
-      imageUrl: "/images/adrian-3.jpeg",
-    },
-    {
-      id: 4,
       name: "about-me.txt",
       icon: "/images/txt.png",
       kind: "file",
       fileType: "txt",
-      position: "top-60 left-5",
+      position: "top-30 left-50",
       subtitle: "Meet the Developer Behind the Code",
-      image: "/images/adrian.jpg",
+      image: "/images/arpit3.jpg",
       description: [
-        "Hey! I’m Adrian 👋, a web developer who enjoys building sleek, interactive websites that actually work well.",
-        "I specialize in JavaScript, React, and Next.js—and I love making things feel smooth, fast, and just a little bit delightful.",
-        "I’m big on clean UI, good UX, and writing code that doesn’t need a search party to debug.",
-        "Outside of dev work, you'll find me tweaking layouts at 2AM, sipping overpriced coffee, or impulse-buying gadgets I absolutely convinced myself I needed 😅",
+        "Hey! I’m Arpit 👋 \nI write code, break things, Google why they broke, and then proudly break them even more.",
       ],
     },
   ],
@@ -457,39 +401,39 @@ const RESUME_LOCATION = {
   ],
 };
 
-const TRASH_LOCATION = {
-  id: 4,
-  type: "trash",
-  name: "Trash",
-  icon: "/icons/trash.svg",
-  kind: "folder",
-  children: [
-    {
-      id: 1,
-      name: "trash1.png",
-      icon: "/images/image.png",
-      kind: "file",
-      fileType: "img",
-      position: "top-10 left-10",
-      imageUrl: "/images/trash-1.png",
-    },
-    {
-      id: 2,
-      name: "trash2.png",
-      icon: "/images/image.png",
-      kind: "file",
-      fileType: "img",
-      position: "top-40 left-80",
-      imageUrl: "/images/trash-2.png",
-    },
-  ],
-};
+// const TRASH_LOCATION = {
+//   id: 4,
+//   type: "trash",
+//   name: "Trash",
+//   icon: "/icons/trash.svg",
+//   kind: "folder",
+//   children: [
+//     {
+//       id: 1,
+//       name: "trash1.png",
+//       icon: "/images/image.png",
+//       kind: "file",
+//       fileType: "img",
+//       position: "top-10 left-10",
+//       imageUrl: "/images/trash-1.png",
+//     },
+//     {
+//       id: 2,
+//       name: "trash2.png",
+//       icon: "/images/image.png",
+//       kind: "file",
+//       fileType: "img",
+//       position: "top-40 left-80",
+//       imageUrl: "/images/trash-2.png",
+//     },
+//   ],
+// };
 
 export const locations = {
   work: WORK_LOCATION,
   about: ABOUT_LOCATION,
   resume: RESUME_LOCATION,
-  trash: TRASH_LOCATION,
+  // trash: TRASH_LOCATION,
 };
 
 const INITIAL_Z_INDEX = 1000;

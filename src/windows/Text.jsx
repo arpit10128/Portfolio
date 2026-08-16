@@ -38,7 +38,9 @@ const Text = () => {
         description.length > 0 ? (
           <div className="space-y-3 leading-relaxed text-base text-white">
             {description.map((para, idx) => (
-              <p key={idx}>{para}</p>
+              <p key={idx} className="whitespace-pre-line">
+                {para}
+              </p>
             ))}
           </div>
         ) : null}

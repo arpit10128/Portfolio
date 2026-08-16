@@ -18,7 +18,7 @@ const Terminal = () => {
         </p>
 
         <div className="label">
-          <p className="w-32">Category</p>
+          <p className="w-42">Category</p>
           <p>Technologies</p>
         </div>
 

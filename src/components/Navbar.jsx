@@ -1,6 +1,7 @@
 import { navLinks } from "#constants";
 import useWindowStore from "#store/window";
 import useLiveTime from "./Time";
+import VisitorCounter from "./VisitorCounter";
 
 const Navbar = () => {
   const { openWindow } = useWindowStore();
@@ -35,6 +36,7 @@ const Navbar = () => {
           ))}
         </ul> */}
 
+        <VisitorCounter />
         <time>{time}</time>
       </div>
     </nav>

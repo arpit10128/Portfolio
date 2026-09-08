@@ -1,5 +1,6 @@
 import { Dock, Navbar, Welcome } from "#components";
 import Background from "#components/Background";
+import MobileLayout from "#components/MobileLayout";
 import {
   Contact,
   Finder,
@@ -17,18 +18,22 @@ gsap.registerPlugin(Draggable);
 const App = () => {
   return (
     <main>
-      <Navbar />
-      <Background />
-      <Welcome />
-      <Dock />
+      <div className="desktop-experience">
+        <Navbar />
+        <Background />
+        <Welcome />
+        <Dock />
 
-      <Terminal />
-      <Safari />
-      <Resume />
-      <Finder />
-      <Text />
-      <Image />
-      <Contact />
+        <Terminal />
+        <Safari />
+        <Resume />
+        <Finder />
+        <Text />
+        <Image />
+        <Contact />
+      </div>
+
+      <MobileLayout />
     </main>
   );
 };

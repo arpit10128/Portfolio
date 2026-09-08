@@ -45,12 +45,10 @@ const MobileLayout = () => {
   }, []);
 
   const scrollTo = (id) => {
-    document
-      .getElementById(id)
-      ?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+    document.getElementById(id)?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
   };
 
   return (
@@ -94,8 +92,7 @@ const MobileLayout = () => {
           </p>
           <h1>Hey, I'm Arpit Saraswat.</h1>
           <p className="mobile-lede">
-            I write code, break things, Google why they
-            broke, and then proudly break them even more.
+            {aboutFile?.description?.[0]}
           </p>
           <div className="mobile-profile-row">
             <img
@@ -108,10 +105,6 @@ const MobileLayout = () => {
                 Available for good ideas
               </p>
             </div>
-          </div>
-          <div className="mobile-about-note">
-            <p>{aboutFile?.subtitle}</p>
-            <p>{aboutFile?.description?.[0]}</p>
           </div>
         </section>
 
